@@ -6,7 +6,7 @@ class RatingModel {
     lateinit var mDetail: String
     lateinit var mComment: String
     lateinit var mSubmit: String
-    var mIsCancelable: Boolean = false
+    var mDialogCancelable: Boolean = false
     var mThreshold: Int = 0
 
     constructor(
@@ -14,14 +14,14 @@ class RatingModel {
         mDetail: String,
         mComment: String,
         mSubmit: String,
-        mIsCancelable: Boolean,
+        mDialogCancelable: Boolean,
         mThreshold: Int
     ) {
         this.mTitle = mTitle
         this.mDetail = mDetail
         this.mComment = mComment
         this.mSubmit = mSubmit
-        this.mIsCancelable = mIsCancelable
+        this.mDialogCancelable = mDialogCancelable
         this.mThreshold = mThreshold
     }
 }
