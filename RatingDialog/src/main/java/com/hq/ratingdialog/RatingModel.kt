@@ -14,14 +14,14 @@ class RatingModel {
         mDetail: String,
         mComment: String,
         mSubmit: String,
-        isCancelable: Boolean,
+        mIsCancelable: Boolean,
         mThreshold: Int
     ) {
         this.mTitle = mTitle
         this.mDetail = mDetail
         this.mComment = mComment
         this.mSubmit = mSubmit
-        this.mIsCancelable = isCancelable
+        this.mIsCancelable = mIsCancelable
         this.mThreshold = mThreshold
     }
 }
