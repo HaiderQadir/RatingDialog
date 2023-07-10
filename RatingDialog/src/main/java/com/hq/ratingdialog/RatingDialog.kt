@@ -19,17 +19,19 @@ import androidx.fragment.app.DialogFragment
  * Created by Haider on 09/12/2021
  */
 
-class RatingDialog() : DialogFragment() {
+class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
 
     var TAG = "FEEDBACKDIALOG"
-    val THRESHOLD = 2
-    var title = "Title"
-    val body = "Body"
 
-    lateinit var mComments: EditText
+    lateinit var mTitleTV: TextView
+    lateinit var mDetailTV: TextView
+    lateinit var mCommentsET: EditText
     lateinit var mRatingBar: RatingBar
-    lateinit var mTitle: TextView
-    lateinit var mDetail: TextView
+
+    val THRESHOLD = ratingModel.mThreshold
+    val mTitle = ratingModel.mTitle
+    val mDetail = ratingModel.mDetail
+    val isCancelable = ratingModel.isCancelable
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +46,7 @@ class RatingDialog() : DialogFragment() {
         val dialog = dialog
         if (dialog != null) {
             dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            dialog!!.setCancelable(true)
+            dialog!!.setCancelable(isCancelable)
         }
     }
 
@@ -57,14 +59,14 @@ class RatingDialog() : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var mDoneBtn: TextView = view.findViewById(R.id.doneButton)
-        mTitle = view.findViewById(R.id.titlelTextView)
-        mDetail = view.findViewById(R.id.detailTextView)
-        mComments = view.findViewById(R.id.userFeedbackEditText)
+        mTitleTV = view.findViewById(R.id.titlelTextView)
+        mDetailTV = view.findViewById(R.id.detailTextView)
+        mCommentsET = view.findViewById(R.id.userFeedbackEditText)
         mRatingBar = view.findViewById(R.id.ratingBar)
-        var mGetComments: Editable? = mComments.text
+        var mGetComments: Editable? = mCommentsET.text
 
-        mTitle.text = title
-        mDetail.text = body
+        mTitleTV.text = mTitle
+        mDetailTV.text = mDetail
 
         mRatingBar.onRatingBarChangeListener =
             RatingBar.OnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -76,7 +78,7 @@ class RatingDialog() : DialogFragment() {
             val getRating: Float = mRatingBar.rating
             Log.d(TAG, "RATING$getRating")
 
-            if (getRating <= THRESHOLD && mComments.text.isEmpty()) {
+            if (getRating <= THRESHOLD && mCommentsET.text.isEmpty()) {
                 Toast.makeText(
                     context,
                     "Please mention the reason for low rating",
