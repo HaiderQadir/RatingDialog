@@ -31,7 +31,7 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
     val THRESHOLD = ratingModel.mThreshold
     val mTitle = ratingModel.mTitle
     val mDetail = ratingModel.mDetail
-    val isCancelable = ratingModel.isCancelable
+    val mIsCancelable = ratingModel.mIsCancelable
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +46,7 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
         val dialog = dialog
         if (dialog != null) {
             dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            dialog!!.setCancelable(isCancelable)
+            dialog!!.setCancelable(mIsCancelable)
         }
     }
 
