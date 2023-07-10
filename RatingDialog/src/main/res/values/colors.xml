@@ -2,9 +2,5 @@
 <resources>
     <color name="white">@android:color/white</color>
     <item name="blue" type="color">#5FC2C2</item>
-    <item name="black" type="color">#5b574d</item>
-
-
-
-
+    <item name="black" type="color">@android:color/darker_gray</item>
 </resources>
