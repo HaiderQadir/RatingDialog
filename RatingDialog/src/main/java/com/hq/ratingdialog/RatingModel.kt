@@ -1,5 +1,8 @@
 package com.hq.ratingdialog
 
+/**
+ * @author HaiderQadir
+ **/
 class RatingModel {
 
     lateinit var mTitle: String

@@ -1,6 +1,5 @@
 package com.hq.ratingdialog
 
-
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -16,12 +15,11 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
 /**
- * Created by Haider on 09/12/2021
- */
-
+ * @author HaiderQadir
+ **/
 class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
 
-    var TAG = "FEEDBACKDIALOG"
+    private var TAG = "RATING_DIALOG"
 
     lateinit var mTitleTV: TextView
     lateinit var mDetailTV: TextView
@@ -34,9 +32,7 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
     val mDialogCancelable = ratingModel.mDialogCancelable
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.activity_rating_dialog, container)
     }
@@ -80,9 +76,7 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
 
             if (getRating <= THRESHOLD && mCommentsET.text.isEmpty()) {
                 Toast.makeText(
-                    context,
-                    "Please mention the reason for low rating",
-                    Toast.LENGTH_SHORT
+                    context, "Please mention the reason for low rating", Toast.LENGTH_SHORT
                 ).show()
             } else {
                 dialog!!.dismiss()
