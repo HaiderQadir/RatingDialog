@@ -33,7 +33,7 @@ var ratingDialog:RatingDialog = RatingDialog(
 	RatingModel("Title", "Detail", "Comments",
 			"Submit", true, 3))
 
-ratingDialog.show(fragmentManager, "")  
+ratingDialog.show(fragmentManager, " ")  
 ````
 Call this above snippet in your `onCreate()`  method of your main Activity.
 ### The constructor requires 6 data items mentioned below 
@@ -42,7 +42,7 @@ Call this above snippet in your `onCreate()`  method of your main Activity.
 - `Comments` For Feedback Dialog Box as a String
 - `Submit` Button Text for Feedback Dialog Box as a String
 - `isCancelable` property for Dialog box a Boolean
-- `Threshhold` as an Integer
+- `Threshold` as an Integer
 
  ## Key Features 🎯
 - **View Pager**: Simple and Easy Implementation of View Pager.
