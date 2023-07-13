@@ -23,26 +23,23 @@ dependencies {
 }
 ````
 
-*👉 Replace Tag with the latest released version*
+*👉 Replace `Tag` with the latest released version.*
 
 ## How to use
 
 ````
 var fragmentManager = supportFragmentManager
-var ratingDialog:RatingDialog = RatingDialog(
-	RatingModel("Title", "Detail", "Comments",
-			"Submit", true, 3))
-
+var ratingDialog:RatingDialog = RatingDialog(RatingModel("Title", "Detail", "Comments","Submit", true, 3))
 ratingDialog.show(fragmentManager, " ")  
 ````
-Call this above snippet in your `onCreate()`  method of your main Activity.
+Call this above Snippet in your `onCreate()` method of Main Activity.
 ### The constructor requires 6 data items mentioned below 
 - `Title` for Feedback Dialog Box as a String
 - `Details` for Feedback Dialog Box as a String
-- `Comments` For Feedback Dialog Box as a String
+- `Comments` for Feedback Dialog Box as a String
 - `Submit` Button Text for Feedback Dialog Box as a String
-- `isCancelable` property for Dialog box a Boolean
-- `Threshold` as an Integer
+- `isCancelable` Property for Dialog Box as a Boolean
+- Rating `Threshold` for Feedback Dialog Box as an Integer
 
  ## Key Features 🎯
 - **View Pager**: Simple and Easy Implementation of View Pager.
