@@ -15,7 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
 /**
- * @author HaiderQadir
+ * @author Haider Qadir
  **/
 class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
 
@@ -26,10 +26,10 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
     lateinit var mCommentsET: EditText
     lateinit var mRatingBar: RatingBar
 
-    val THRESHOLD = ratingModel.mThreshold
-    val mTitle = ratingModel.mTitle
-    val mDetail = ratingModel.mDetail
-    val mDialogCancelable = ratingModel.mDialogCancelable
+    private val THRESHOLD = ratingModel.mThreshold
+    private val mTitle = ratingModel.mTitle
+    private val mDetail = ratingModel.mDetail
+    private val mDialogCancelable = ratingModel.mDialogCancelable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -72,11 +72,11 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
 
         mDoneBtn.setOnClickListener(View.OnClickListener {
             val getRating: Float = mRatingBar.rating
-            Log.d(TAG, "RATING$getRating")
+            Log.d(TAG, "RATING: $getRating")
 
             if (getRating <= THRESHOLD && mCommentsET.text.isEmpty()) {
                 Toast.makeText(
-                    context, "Please mention the reason for low rating", Toast.LENGTH_SHORT
+                    context, R.string.lowRating, Toast.LENGTH_SHORT
                 ).show()
             } else {
                 dialog!!.dismiss()

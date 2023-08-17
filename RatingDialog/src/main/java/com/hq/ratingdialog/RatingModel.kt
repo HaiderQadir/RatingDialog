@@ -1,14 +1,14 @@
 package com.hq.ratingdialog
 
 /**
- * @author HaiderQadir
+ * @author Haider Qadir
  **/
 class RatingModel {
 
-    lateinit var mTitle: String
-    lateinit var mDetail: String
-    lateinit var mComment: String
-    lateinit var mSubmit: String
+    var mTitle: String
+    var mDetail: String
+    var mComment: String
+    var mSubmit: String
     var mDialogCancelable: Boolean = false
     var mThreshold: Int = 0
 
