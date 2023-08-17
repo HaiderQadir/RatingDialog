@@ -1,1 +1,3 @@
-<resources></resources>
+<resources>
+    <string name="lowRating">Please mention the reason for low rating.</string>
+</resources>
