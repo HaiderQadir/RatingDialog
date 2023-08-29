@@ -9,6 +9,7 @@ class RatingModel {
     var mDetail: String
     var mComment: String
     var mSubmit: String
+    var mAnimation: Boolean = false
     var mDialogCancelable: Boolean = false
     var mThreshold: Int = 0
 
@@ -17,6 +18,7 @@ class RatingModel {
         mDetail: String,
         mComment: String,
         mSubmit: String,
+        mAnimation: Boolean,
         mDialogCancelable: Boolean,
         mThreshold: Int
     ) {
@@ -24,6 +26,7 @@ class RatingModel {
         this.mDetail = mDetail
         this.mComment = mComment
         this.mSubmit = mSubmit
+        this.mAnimation = mAnimation
         this.mDialogCancelable = mDialogCancelable
         this.mThreshold = mThreshold
     }
