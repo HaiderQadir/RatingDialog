@@ -9,10 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
 
 /**
  * @author Haider Qadir
@@ -24,11 +26,13 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
     lateinit var mTitleTV: TextView
     lateinit var mDetailTV: TextView
     lateinit var mCommentsET: EditText
+    lateinit var mImageView: ImageView
     lateinit var mRatingBar: RatingBar
 
     private val THRESHOLD = ratingModel.mThreshold
     private val mTitle = ratingModel.mTitle
     private val mDetail = ratingModel.mDetail
+    private val mAnimation = ratingModel.mAnimation
     private val mDialogCancelable = ratingModel.mDialogCancelable
 
     override fun onCreateView(
@@ -54,15 +58,18 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         var mDoneBtn: TextView = view.findViewById(R.id.doneButton)
         mTitleTV = view.findViewById(R.id.titlelTextView)
         mDetailTV = view.findViewById(R.id.detailTextView)
         mCommentsET = view.findViewById(R.id.userFeedbackEditText)
+        mImageView = view.findViewById(R.id.imageViewGif)
         mRatingBar = view.findViewById(R.id.ratingBar)
         var mGetComments: Editable? = mCommentsET.text
 
         mTitleTV.text = mTitle
         mDetailTV.text = mDetail
+
 
         mRatingBar.onRatingBarChangeListener =
             RatingBar.OnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -78,6 +85,9 @@ class RatingDialog(ratingModel: RatingModel) : DialogFragment() {
                 Toast.makeText(
                     context, R.string.lowRating, Toast.LENGTH_SHORT
                 ).show()
+            } else if (getRating == 5f && mAnimation) {
+                Glide.with(this).load(R.drawable.congratulations_gif)
+                    .into(mImageView)
             } else {
                 dialog!!.dismiss()
             }
